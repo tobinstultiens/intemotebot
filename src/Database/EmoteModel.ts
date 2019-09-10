@@ -10,5 +10,5 @@ export const EmoteSchema = new mongoose.Schema({
     shortcut: { type: String, required: true },
   });
 
-const Book = mongoose.model<IEmote>("Book", EmoteSchema);
-export default Book;
+const Emote = mongoose.model<IEmote>("Emote", EmoteSchema);
+export default Emote;
