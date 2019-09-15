@@ -15,6 +15,9 @@ export class TSDiscordBot {
             if (msg.content.startsWith("!store")) {
                 storeEmote.Store(msg);
             }
+            else if (msg.content.startsWith("!retrieve")){
+                storeEmote.Retrieve(msg);
+            }
         });
 
         client.login(token);

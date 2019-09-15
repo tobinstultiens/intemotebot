@@ -21,4 +21,18 @@ export class StoreEmote {
             }
         }
     }
+
+    public Retrieve(msg: { content: string; reply: (arg0: string) => void; }) {
+        if (msg.content.startsWith("!retrieve :") && msg.content.endsWith(":")) {
+            var message = msg.content.split(":", 3);
+            console.log(message[1]);
+            var Emoptere = Emote.findOne({shortcut: message[1]}, (err: any, shortcut: any) => {
+                if (err) {
+                  msg.reply(err);
+                } else {
+                  msg.reply(shortcut);
+                }
+              });
+        }
+    }
 }
