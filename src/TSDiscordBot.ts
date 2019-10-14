@@ -12,19 +12,14 @@ export class TSDiscordBot {
         });
 
         client.on("message", (msg: { content: string; reply: (arg0: string) => void; }) => {
-           // if(msg.content.match("(!retrieve.*|^!store \\<.*).!*")){
+            //if (msg.content.match("(!retrieve.*|^!store \\<.*).!*") == null) {
                 if (msg.content.startsWith("!store")) {
                     storeEmote.Store(msg);
                 }
-                else if (msg.content.startsWith("!retrieve")){
-                    var test = storeEmote.Retrieve(msg);
-                    var str = new String(test);
-                    console.log(str);
-                   var emoji = client.emojis.find(emoj => emoj.name === str);
-                   console.log(emoji);
-                   msg.reply(`${emoji}`);
+                else if (msg.content.startsWith("!retrieve")) {
+                    storeEmote.Retrieve(msg);
                 }
-           // }            
+            //}
         });
 
         client.login(token);
